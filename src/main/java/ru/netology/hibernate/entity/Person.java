@@ -14,7 +14,7 @@ import org.hibernate.validator.constraints.Range;
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @Column(nullable = false, length = 30)
     private String name;
@@ -24,7 +24,7 @@ public class Person {
 
     @Range(min = 0, max = 110)
     @Column(nullable = false)
-    private int age;
+    private Integer age;
 
     @Column(nullable = false, unique = true)
     private String phoneNumber;

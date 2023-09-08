@@ -19,7 +19,18 @@ public class PersonController {
     }
 
     @GetMapping("/by-city")
-    private List<Person> findPerson(@RequestParam String city) {
-        return personRepository.findPersonByCity(city);
+    private List<Person> findPersonsByCity(@RequestParam String city) {
+        return personRepository.findByCityOfLiving(city);
+    }
+
+    @GetMapping("/by-age")
+    private List<Person> findPersonsByAgeAndSort(@RequestParam String age) {
+        return personRepository.findByAgeLessThanOrderByAgeAsc(Integer.valueOf(age));
+    }
+
+    @GetMapping("/by-name-and-surname")
+    private Person findByNameAndSurname(@RequestParam String name, @RequestParam String surname) {
+        var person = personRepository.findByNameAndSurname(name, surname);
+        return person.orElse(null);
     }
 }
