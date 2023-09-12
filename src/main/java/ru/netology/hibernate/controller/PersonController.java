@@ -18,6 +18,12 @@ public class PersonController {
         this.personRepository = personRepository;
     }
 
+
+    @GetMapping("/hello")
+    private String findPersonsByCity() {
+        return "Hello";
+    }
+
     @GetMapping("/by-city")
     private List<Person> findPersonsByCity(@RequestParam String city) {
         return personRepository.findByCityOfLiving(city);
