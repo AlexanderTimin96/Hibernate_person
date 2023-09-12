@@ -24,6 +24,7 @@ public class PersonController {
         return "Hello";
     }
 
+
     @GetMapping("/by-city")
     private List<Person> findPersonsByCity(@RequestParam String city) {
         return personRepository.findByCityOfLiving(city);
